@@ -34,10 +34,59 @@
 			//uncomment to test...
 
 			//Account calls
-			$this->accounts(false);
+
+			//$this->accounts(true);
+			//$this->accounts(false);
 
 			//Department calls
-			$this->departmentLists(false);
+
+			//$this->departmentLists(true);
+			//$this->departmentLists(false);
+
+			//$this->departmentInfo(true);
+			//$this->departmentInfo(false);
+
+			//$this->stepsByDepartmentList(true);
+			//$this->stepsByDepartmentList(false);			
+
+			//$this->stepInfoByDepartment(true);
+			//$this->stepInfoByDepartment(false);
+
+			//User calls
+
+			//$this->usersList(true);
+			//$this->usersList(false);
+
+			//$this->usersInfo(true);
+			//$this->usersInfo(false);
+
+			//Goals calls
+
+			//$this->goalLists(true);
+			//$this->goalLists(false);
+
+			//$this->goalListsDetail(true);
+			//$this->goalListsDetail(false);
+
+			//$this>goalInfo(true);
+			//$this->goalInfo(false);
+
+			//$this->goalInfoDetail(true);
+			//$this->goalInfoDetail(false);
+
+			//$this->kpiList(true);
+			//$this->kpiList(false);
+			
+			//$this->kpiListDetail(true);
+			//$this->kpiListDetail(false);
+
+			//Steps Calls
+			
+			//$this->stepsList(true);
+			//$this->stepsList(false);
+
+			//$this->stepsInfo(true);
+			//$this->stepsInfo(false);
 
 			//Print raw output from tests.
 			//TO DO: If time permits create a pretty HTML table.
