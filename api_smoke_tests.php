@@ -160,9 +160,11 @@
 		}
 
 		/*
-			Testing steps by department api call.
+			Testing steps by department list api call.
+
+			This call is listed twice on the documentation page.
 		*/
-		function stepsByDepartment($useValidKey){
+		function stepsByDepartmentList($useValidKey){
 
 			$apiKey = $this->apiKey;
 
@@ -170,7 +172,16 @@
 				$apiKey = $this->apiKey_invalid;
 			}
 
-			$this->processResponse("Steps By Department", $curl_response, $useValidKey);
+			$url = "http://apidev.onstrategyhq.com/api/departments/98/steps.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+   			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+   			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+   			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+   			$curl_response = curl_exec($curl);
+   			curl_close($curl);
+
+			$this->processResponse("Steps By Department List", $curl_response, $useValidKey);
 		}
 
 		/*
@@ -183,6 +194,15 @@
 			if($useValidKey == false){
 				$apiKey = $this->apiKey_invalid;
 			}
+
+			$url = "http://apidev.onstrategyhq.com/api/departments/98/steps/calendar.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+   			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+   			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+   			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+   			$curl_response = curl_exec($curl);
+   			curl_close($curl);
 
 			$this->processResponse("Step Info By Department", $curl_response, $useValidKey);			
 		}
@@ -198,6 +218,15 @@
 				$apiKey = $this->apiKey_invalid;
 			}
 
+			$url = "http://apidev.onstrategyhq.com/api/users.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
+
 			$this->processResponse("Users List", $curl_response, $useValidKey);			
 		}
 
@@ -211,6 +240,15 @@
 			if($useValidKey == false){
 				$apiKey = $this->apiKey_invalid;
 			}
+	
+			$url = "http://apidev.onstrategyhq.com/api/users/9.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
 
 			$this->processResponse("Users Info", $curl_response, $useValidKey);			
 		}
@@ -226,6 +264,15 @@
 				$apiKey = $this->apiKey_invalid;
 			}
 
+			$url = "http://apidev.onstrategyhq.com/api/goals.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
+
 			$this->processResponse("Goal Lists", $curl_response, $useValidKey);			
 		}
 
@@ -239,6 +286,15 @@
 			if($useValidKey == false){
 				$apiKey = $this->apiKey_invalid;
 			}
+
+			$url = "http://apidev.onstrategyhq.com/api/goals_detail.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
 
 			$this->processResponse("Goal Lists Detail", $curl_response, $useValidKey);			
 		}
@@ -254,22 +310,23 @@
 				$apiKey = $this->apiKey_invalid;
 			}
 
+			$url = "http://apidev.onstrategyhq.com/api/goals.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
+
 			$this->processResponse("Goal Info", $curl_response, $useValidKey);			
 		}
 
 		/*
-			Testing goal info detail api call.
+			Goal is listed but no documentation on this call.
+			This call may have been deprecated or could be a call to be implemented.
 		*/
-		function goalInfoDetail($useValidKey){
-
-			$apiKey = $this->apiKey;
-
-			if($useValidKey == false){
-				$apiKey = $this->apiKey_invalid;
-			}
-
-			$this->processResponse("Goal Info Detail", $curl_response, $useValidKey);			
-		}
+		function goalInfoDetail($useValidKey){}
 
 		/*
 			Testing kpi list api call.
@@ -281,6 +338,15 @@
 			if($useValidKey == false){
 				$apiKey = $this->apiKey_invalid;
 			}
+
+			$url = "http://apidev.onstrategyhq.com/api/goals/kpis.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
 
 			$this->processResponse("KPI List", $curl_response, $useValidKey);			
 		}
@@ -296,6 +362,15 @@
 				$apiKey = $this->apiKey_invalid;
 			}
 
+			$url = "http://apidev.onstrategyhq.com/api/goals_details/kpis.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
+
 			$this->processResponse("KPI List Detail", $curl_response, $useValidKey);			
 		}
 
@@ -309,6 +384,15 @@
 			if($useValidKey == false){
 				$apiKey = $this->apiKey_invalid;
 			}
+
+			$url = "http://apidev.onstrategyhq.com/api/steps.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
 
 			$this->processResponse("Steps List", $curl_response, $useValidKey);			
 		}
@@ -324,6 +408,15 @@
 				$apiKey = $this->apiKey_invalid;
 			}
 
+			$url = "http://apidev.onstrategyhq.com/api/steps/opportunities.json";
+			$data = json_encode(array('key'=>$apiKey));
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			$curl_response = curl_exec($curl);
+			curl_close($curl);
+
 			$this->processResponse("Steps Info", $curl_response, $useValidKey);			
 		}
 
@@ -331,6 +424,6 @@
 			The misc calls has no endpoints. There is a note on this page
 			that says "Update Me!".
 		*/
-		function misc(){}
+		function misc($useValidKey){}
 	}
 ?>
