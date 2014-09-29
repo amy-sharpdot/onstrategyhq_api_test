@@ -68,24 +68,24 @@
 			//$this->goalListsDetail(true);
 			//$this->goalListsDetail(false);
 
-			//$this>goalInfo(true);
+			$this->goalInfo(true);
 			//$this->goalInfo(false);
 
-			//$this->goalInfoDetail(true);
+			$this->goalInfoDetail(true);
 			//$this->goalInfoDetail(false);
 
-			//$this->kpiList(true);
+			$this->kpiList(true);
 			//$this->kpiList(false);
 			
-			//$this->kpiListDetail(true);
+			$this->kpiListDetail(true);
 			//$this->kpiListDetail(false);
 
 			//Steps Calls
 			
-			//$this->stepsList(true);
+			$this->stepsList(true);
 			//$this->stepsList(false);
 
-			//$this->stepsInfo(true);
+			$this->stepsInfo(true);
 			//$this->stepsInfo(false);
 
 			//Print raw output from tests.
@@ -352,6 +352,9 @@
 			Testing goal info api call.
 		*/
 		function goalInfo($useValidKey){
+			
+			//Returned from Goal List Detail
+			$id = "26";
 
 			$apiKey = $this->apiKey;
 
@@ -359,7 +362,7 @@
 				$apiKey = $this->apiKey_invalid;
 			}
 
-			$url = "http://apidev.onstrategyhq.com/api/goals.json";
+			$url = "http://apidev.onstrategyhq.com/api/goals/" .$id. ".json";
 			$data = json_encode(array('key'=>$apiKey));
 			$curl = curl_init($url);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
@@ -367,7 +370,7 @@
 			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 			$curl_response = curl_exec($curl);
 			curl_close($curl);
-
+			
 			$this->processResponse("Goal Info", $curl_response, $useValidKey);			
 		}
 
@@ -402,6 +405,12 @@
 
 		/*
 			Testing kpi list detail api call.
+
+			Failed. 
+
+			HTTP response code: 404,
+			Status code: 1004,
+			Message: "Not Found"
 		*/
 		function kpiListDetail($useValidKey){
 
